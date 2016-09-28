@@ -146,7 +146,7 @@ def _dataIsString(data):
     return isString
 
 def _visualize(target):
-  target = '(' + target + ')'
+  target = fb.evaluateInputExpression(target)
 
   if fb.evaluateBooleanExpression('(unsigned long)CFGetTypeID((CFTypeRef)' + target + ') == (unsigned long)CGImageGetTypeID()'):
     _showImage('(id)[UIImage imageWithCGImage:' + target + ']')
